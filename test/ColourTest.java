@@ -5,8 +5,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class ColourTest {
 
     @Test
-    void getName() {
-        Colour colour = new Colour("Blue");
-        assertEquals(colour.getName(), "Blue");
+    void getBlue() {
+        Colour blue = new Colour("Blue", 0, 0, 255);
+        assertEquals(blue.getColour(), "Blue");
+        assertEquals(blue.getR(),0);
+        assertEquals(blue.getB(),255);
+        assertEquals(blue.getG(), 0);
+
     }
+
 }
