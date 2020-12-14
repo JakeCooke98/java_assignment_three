@@ -35,29 +35,29 @@ public class Colour {
     }
 
     public void setR(int r) {
-        if ((r <= 255) || (r >= 0)) {
+        if ((r <= 255) && (r >= 0)) {
             this.r = r;
         }
         else{
-            System.out.println("Error - Outside of range");
+            throw new IllegalArgumentException("Error - outside of range");
         }
     }
 
     public void setG(int g) {
-        if ((g <= 255) || (g >= 0)) {
+        if ((g <= 255) && (g >= 0)) {
             this.g = g;
         }
          else{
-            System.out.println("Error - Outside of range");
+            throw new IllegalArgumentException("Error - outside of range");
         }
     }
 
     public void setB(int b) {
-        if ((b <= 255) || (b >= 0)) {
+        if ((b <= 255) && (b >= 0)) {
             this.b = b;
         }
         else{
-            System.out.println("Error - Outside of range");
+            throw new IllegalArgumentException("Error - outside of range");
         }
     }
 }

@@ -11,7 +11,6 @@ class ColourTest {
         assertEquals(blue.getR(),0);
         assertEquals(blue.getB(),255);
         assertEquals(blue.getG(), 0);
-
     }
 
 }
