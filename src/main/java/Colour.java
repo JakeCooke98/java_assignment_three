@@ -1,52 +1,53 @@
 public class Colour {
-    private final String colourName;
+
+    private String colourName;
+    private String modelType;
+
     private int r;
     private int g;
     private int b;
 
     /**
-     * @param colourName = For the name of the colour, e.g "Blue" or "Red"
-     * @param r = First colour of the RGB, RED
-     * @param g = Second colour of the RGB, GREEN
-     * @param b = Third colour of the RGB, BLUE
+     * @param modelType - Tagged field to identify RGB or NAME
+     * @param colourName - This field only used if modelType is NAME
+     * These fields only used if modelType is RGB
+     * @param r - Used to specify the RED part of RGB
+     * @param g - Used to specify the GREEN part of RGB
+     * @param b - Used to specify the BLUE part of RGB
      */
 
-    public Colour(String colourName, int r, int g, int b) {
-        this.colourName = colourName;
-        if(r>255 || r<0) {
-            throw new IllegalArgumentException("R must be in the range 0 - 255");
-        }
-        else {
-            this.r = r;
-        }
-        if(g>255 || g<0){
-            throw new IllegalArgumentException("G must be in the range 0 - 255");
-        }
-        else {
-            this.g = g;
-        }
-        if(b>255 || b<0){
-            throw new IllegalArgumentException("B must be in the range 0 - 255");
-        }
-        else {
-            this.b = b;
-        }
+    public Colour(int r, int g, int b, String modelType) {
+        if (r <= 255 && r >= 0) { this.r = r;}
+        else { throw new IllegalArgumentException("R must be in the range 0 - 255");}
+        if (g <= 255 && g >= 0) { this.g = g;}
+        else { throw new IllegalArgumentException("G must be in the range 0 - 255");}
+        if (b <= 255 && b >= 0) { this.b = b;}
+        else { throw new IllegalArgumentException("B must be in the range 0 - 255");}
+        this.modelType = modelType;
     }
 
-    public String getColour(){
-        return colourName;
+    public Colour(String colourName, String modelType) {
+        this.colourName = colourName;
+        this.modelType = modelType;
+    }
+
+    public String getModelType() {
+        return this.modelType;
+    }
+
+    public String getColour() {
+        return this.colourName;
     }
 
     public int getR() {
-        return r;
+        return this.r;
     }
 
     public int getG() {
-        return g;
+        return this.g;
     }
 
     public int getB() {
-        return b;
+        return this.b;
     }
 }
-
