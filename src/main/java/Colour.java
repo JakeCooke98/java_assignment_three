@@ -13,9 +13,24 @@ public class Colour {
 
     public Colour(String colourName, int r, int g, int b) {
         this.colourName = colourName;
-        this.r = r;
-        this.g = g;
-        this.b = b;
+        if(r>255 || r<0) {
+            throw new IllegalArgumentException("R must be in the range 0 - 255");
+        }
+        else {
+            this.r = r;
+        }
+        if(g>255 || g<0){
+            throw new IllegalArgumentException("G must be in the range 0 - 255");
+        }
+        else {
+            this.g = g;
+        }
+        if(b>255 || b<0){
+            throw new IllegalArgumentException("B must be in the range 0 - 255");
+        }
+        else {
+            this.b = b;
+        }
     }
 
     public String getColour(){
@@ -32,33 +47,6 @@ public class Colour {
 
     public int getB() {
         return b;
-    }
-
-    public void setR(int r) {
-        if ((r <= 255) && (r >= 0)) {
-            this.r = r;
-        }
-        else{
-            throw new IllegalArgumentException("Error - outside of range");
-        }
-    }
-
-    public void setG(int g) {
-        if ((g <= 255) && (g >= 0)) {
-            this.g = g;
-        }
-         else{
-            throw new IllegalArgumentException("Error - outside of range");
-        }
-    }
-
-    public void setB(int b) {
-        if ((b <= 255) && (b >= 0)) {
-            this.b = b;
-        }
-        else{
-            throw new IllegalArgumentException("Error - outside of range");
-        }
     }
 }
 
