@@ -27,7 +27,7 @@ public class Colour {
     }
 
     public Colour(String colourName, String modelType) {
-        this.colourName = colourName;
+        this.colourName = colourName.toLowerCase();
         this.modelType = modelType;
     }
 
@@ -50,4 +50,5 @@ public class Colour {
     public int getB() {
         return this.b;
     }
+
 }
