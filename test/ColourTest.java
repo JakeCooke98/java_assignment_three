@@ -14,6 +14,8 @@ class ColourTest {
     Colour black = new Colour("Black", "NAME");
     Colour redTwo = new Colour(255,0,0,"RGB");
     Colour pinkTwo = new Colour("pink", "NAME");
+    Colour randomOne = new Colour(32,0,0,"RGB");
+    Colour randomTwo = new Colour(32,0,32,"RGB");
 
 
     @Test
@@ -103,5 +105,16 @@ class ColourTest {
     @Test
     void compareTwoDifferentModels() {
         assertThrows(AssertionFailedError.class, () -> assertEquals(pink.getModelType(), blue.getModelType()));
+    }
+
+    @Test
+    void addColours() {
+        assertEquals(randomOne.add(randomTwo),randomOne.add(randomTwo));
+        assertEquals(pink.add(pinkTwo), pink.add(pink));
+    }
+
+    @Test
+    void addTwoColoursThatExceed() {
+        assertThrows(IllegalArgumentException.class,() -> assertEquals(blue.add(blue),blue.add(blue)));
     }
 }
